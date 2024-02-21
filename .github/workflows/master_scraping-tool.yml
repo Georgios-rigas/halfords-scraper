@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'scraping-tool'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8F2F858366EA4CCC9A6BF2BA9053854C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_567C534D56EB4F1FA7AF147C62F7E74E }}
