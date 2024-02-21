@@ -17,6 +17,7 @@ df = pd.read_csv('df')
 
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 app = dash.Dash( __name__ )
+server = app.server
 blackbold={'color':'black', 'font-weight': 'bold'}
 rangeslider_marks = {0:'0 Miles', 3:'3 Miles', 6:'6 Miles', 9:'9 Miles', 12:'12 Miles'}
 
@@ -158,5 +159,5 @@ def display_click_data(clickData):
             return the_link
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 8050))  # Use PORT env var if available, else default to 8050
-    app.run_server(debug=False, host='0.0.0.0', port=port)
+    app.run_server(port = 9911)
+ 
