@@ -23,7 +23,7 @@ rangeslider_marks = {0:'0 Miles', 3:'3 Miles', 6:'6 Miles', 9:'9 Miles', 12:'12 
 
 app.layout = html.Div(children=[
     # Full-height container to allow vertical centering
-    html.Div(style={'position': 'fixed', 'top': '0', 'right': '0', 'margin-right': '10px'},
+    html.Div(style={'position': 'fixed', 'top': '5', 'right': '0', 'margin-right': '10px'},
         children=[
             html.Img(src='/assets/logo.png', style={'max-height': '100px', 'margin-right': '10px'})
         ]),
