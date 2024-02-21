@@ -32,18 +32,18 @@ app.layout = html.Div(children=[
         # Repair Issue Checklist
         html.Div([ 
             html.Label(['Repair Issue: '], style=blackbold),
-            dcc.Checklist(id='problem',
+            dcc.RadioItems(id='problem',
                           options=[{'label': str(b), 'value': b} for b in sorted(df['Problem'].unique())],
-                          value=['clutch replacement'],
+                          value='clutch replacement',
                           )
         ], style={'margin-right': '20px', 'font-family':'arial'}),  # Spacing between checklists
 
         # City Checklist
         html.Div([
             html.Label(['City: '], style=blackbold),
-            dcc.Checklist(id='city',
+            dcc.RadioItems(id='city',
                           options=[{'label': str(b), 'value': b} for b in sorted(df['city'].unique())],
-                          value=['Bristol']
+                          value='Bristol'
                           )
         ]),
     ], style={'display': 'flex', 'flex-direction': 'row', 'align-items': 'flex-start', 'font-family':'arial'}),
@@ -96,7 +96,7 @@ app.layout = html.Div(children=[
 )
 def update_graph(problem, city, distance):
     rest_df = df[df['Shops']!='Halfords Autocentre']
-    rest_df = rest_df[(rest_df['city'].isin(city)) & (rest_df['Problem'].isin(problem))]
+    rest_df = rest_df[(rest_df['city']==city) & (rest_df['Problem']==problem)]
     rest_df = rest_df[(rest_df['Distance from Halfords']>=distance[0]) & (rest_df['Distance from Halfords']<=distance[1]) ]
 
     latitude_mean = rest_df["latitude"].median()
