@@ -13,7 +13,10 @@ import os
 
 
 df = pd.read_csv('df')
+df_front_pads = pd.read_csv('front_pads')
 
+df = pd.concat([df,df_front_pads])
+df['Problem'] = df['Problem'].replace('9102', 'front brakes pads')
 
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 app = dash.Dash( __name__ )
